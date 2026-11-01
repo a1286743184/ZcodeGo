@@ -33,6 +33,11 @@
     <string name="settings_title">Settings</string>
     <string name="settings_subtitle">Diagnostics, updates and background capability</string>
     <string name="settings_section_log">Diagnostic log</string>
+    <string name="settings_privacy_title">Privacy mode</string>
+    <string name="settings_privacy_summary">When on, diagnostic logs keep only event categories and status. Page text and session content are never written.</string>
+    <string name="settings_privacy_notice_title">Privacy mode is off</string>
+    <string name="settings_privacy_notice_body">Diagnostics may include page text and session details. If you plan to upload or share logs, enabling privacy mode first is recommended.</string>
+    <string name="settings_privacy_enable">Enable</string>
     <string name="settings_section_update">App update</string>
     <string name="settings_section_ability">Background capability</string>
     <string name="settings_status_unverified">Not verified</string>

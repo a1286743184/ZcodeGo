@@ -40,6 +40,23 @@ object DiagLog {
     @Volatile
     var retentionDays: Int = 14
 
+    /**
+     * 隐私模式：开启后，内容类日志（页面文本、JS 执行结果等会话内容）只落事件名。
+     * 事件类别与状态计数不受影响，仍然足以还原时序；定位内容类问题时应关闭。
+     * 由设置页开关与 App 启动时的持久化值驱动（见 SettingsStore.privacyMode）。
+     */
+    @Volatile
+    var privacyMode: Boolean = false
+
+    /** 纯函数便于单测：隐私模式下内容 detail 置空。 */
+    fun gate(privacy: Boolean, detail: String): String = if (privacy) "" else detail
+
+    /**
+     * 内容类日志统一走这里：detail 可能携带会话内容（页面文本、JS 结果），
+     * 隐私模式下整体置空，只留事件名。非内容的类别/状态日志直接用 [i]/[w]/[e]。
+     */
+    fun gated(detail: String): String = gate(privacyMode, detail)
+
     private val exec = Executors.newSingleThreadExecutor { r ->
         Thread(r, "zr-diag-log").apply { isDaemon = true }
     }

@@ -73,8 +73,14 @@ Linux/macOS 上如提示 gradlew 无执行权限：`chmod +x gradlew`。
 
 ## 隐私说明
 
-诊断日志只记类别、状态与计数：URL 丢弃 query 与 fragment（sid/token/code 在里面），
-消息体不记。详见 [`docs/日志上传与拉取.md`](docs/日志上传与拉取.md)。
+**隐私模式**（设置 → 诊断日志）：开启后诊断日志只记事件类别与状态计数，页面文本、
+JS 执行结果等会话内容一律不落盘。开源渠道会在设置页醒目提醒开启（维护者自有构建
+不提醒）；上传或分享日志给他人前建议先开启。实现见 `DiagLog.gated` 与
+`SettingsStore.privacyMode`。
+
+无论隐私模式与否：URL 只保留 scheme+host+path，query 与 fragment 一律丢弃
+（sid/token/code 在里面），消息体不记。详见
+[`docs/日志上传与拉取.md`](docs/日志上传与拉取.md)。
 
 ## 已知限制
 

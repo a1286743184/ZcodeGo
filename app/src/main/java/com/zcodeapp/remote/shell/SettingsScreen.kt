@@ -95,6 +95,7 @@ fun SettingsScreen(
     var uploadNote by remember { mutableStateOf<String?>(null) }
     var showTokenInput by remember { mutableStateOf(!LogUploader.isConfigured(context)) }
     var tokenInput by remember { mutableStateOf("") }
+    var privacyMode by remember { mutableStateOf(app.settings.privacyMode) }
 
     // 从系统设置返回时刷新权限状态：用户可能刚在系统里开了电池白名单/通知。
     androidx.lifecycle.compose.LifecycleResumeEffect(Unit) {
@@ -204,6 +205,42 @@ fun SettingsScreen(
         // ---- 诊断日志 ----
         SectionLabel(stringResource(R.string.settings_section_log))
         SurfaceGroup {
+            // 隐私模式提醒：开源渠道（PRIVACY_NOTICE=true）在未开启时醒目提示；
+            // 维护者构建 zr.privacyNotice=false，不出现这一行。
+            if (BuildConfig.PRIVACY_NOTICE && !privacyMode) {
+                SettingRow(
+                    title = stringResource(R.string.settings_privacy_notice_title),
+                    subtitle = stringResource(R.string.settings_privacy_notice_body),
+                    titleColor = MaterialTheme.colorScheme.error,
+                ) {
+                    TextAction(
+                        label = stringResource(R.string.settings_privacy_enable),
+                        onClick = {
+                            app.settings.privacyMode = true
+                            privacyMode = true
+                        },
+                        emphasize = true,
+                    )
+                }
+                RowDivider()
+            }
+            SettingRow(
+                title = stringResource(R.string.settings_privacy_title),
+                subtitle = stringResource(R.string.settings_privacy_summary),
+            ) {
+                Switch(
+                    checked = privacyMode,
+                    onCheckedChange = { enabled ->
+                        privacyMode = enabled
+                        app.settings.privacyMode = enabled
+                    },
+                    colors = SwitchDefaults.colors(
+                        checkedTrackColor = MaterialTheme.colorScheme.primary,
+                        checkedThumbColor = MaterialTheme.colorScheme.background,
+                    ),
+                )
+            }
+            RowDivider()
             SettingRow(
                 title = if (uploading) {
                     stringResource(R.string.settings_log_uploading)

@@ -53,6 +53,10 @@ android {
     val updateFallbackUrl = localSigning.getProperty("zr.updateFallbackUrl")?.trim().takeIf { !it.isNullOrBlank() }
         ?: "https://github.com/a1286743184/ZcodeGo/releases/latest/download/zcodego-latest.apk"
 
+    // 隐私模式提醒：开源渠道默认显示（提醒用户开启隐私模式）；
+    // 维护者自有构建在 local.properties 配 zr.privacyNotice=false 关闭提醒。
+    val privacyNotice = localSigning.getProperty("zr.privacyNotice", "true").trim() != "false"
+
     signingConfigs {
         create("release") {
             val storePath = signingEnv("ZR_KEYSTORE", "zr.keystorePath")
@@ -73,14 +77,15 @@ android {
         applicationId = "com.zcodeapp.remote"
         minSdk = 26
         targetSdk = 36
-        versionCode = 26
-        versionName = "0.4.4"
+        versionCode = 27
+        versionName = "0.4.5"
         manifestPlaceholders["usesCleartextTraffic"] = "false"
         buildConfigField("String", "REMOTE_CONTROL_DEFAULT_URL", "\"https://zcode.z.ai/remote/v4\"")
         buildConfigField("String", "LOG_UPLOAD_OWNER", "\"$logOwner\"")
         buildConfigField("String", "LOG_UPLOAD_REPO", "\"$logRepo\"")
         buildConfigField("String", "UPDATE_MANIFEST_URL", "\"$updateManifestUrl\"")
         buildConfigField("String", "UPDATE_FALLBACK_URL", "\"$updateFallbackUrl\"")
+        buildConfigField("boolean", "PRIVACY_NOTICE", "$privacyNotice")
     }
 
     buildTypes {

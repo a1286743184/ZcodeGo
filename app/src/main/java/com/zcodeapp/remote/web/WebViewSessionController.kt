@@ -264,7 +264,7 @@ class WebViewSessionController(private val app: ZcodeRemoteApp) {
 
                     if (verdict.ready) {
                         delivered = true
-                        DiagLog.i("file.deliver", "ready after ${elapsed}ms reason=${verdict.reason} state=$text")
+                        DiagLog.i("file.deliver", "ready after ${elapsed}ms reason=${verdict.reason} state=${DiagLog.gated(text)}")
                         cb.onReceiveValue(uris)
                         return@evaluateJavascript
                     }
@@ -274,7 +274,7 @@ class WebViewSessionController(private val app: ZcodeRemoteApp) {
                         delivered = true
                         DiagLog.w(
                             "file.deliver.timeout",
-                            "after ${elapsed}ms reason=${verdict.reason} state=$text",
+                            "after ${elapsed}ms reason=${verdict.reason} state=${DiagLog.gated(text)}",
                         )
                         cb.onReceiveValue(uris)
                         return@evaluateJavascript
@@ -319,7 +319,7 @@ class WebViewSessionController(private val app: ZcodeRemoteApp) {
                 "wsHealthy:s.snapshot?JSON.parse(s.snapshot()).wsHealthy:null});})()",
         ) { raw ->
             val text = decodeJsStringResult(raw)
-            DiagLog.i("web.hold", "fn=$fn result=$text")
+            DiagLog.i("web.hold", "fn=$fn result=${DiagLog.gated(text)}")
         }
     }
 
@@ -420,7 +420,9 @@ class WebViewSessionController(private val app: ZcodeRemoteApp) {
             }
             append(" text=").append(text)
         }
-        if (level == "warn") DiagLog.w("page.diag", detail) else DiagLog.e("page.diag", detail)
+        // page.diag 的 text 是页面原文（可含会话内容），隐私模式下整体置空：
+        // code/tap 的定位价值让位于内容风险，时序本身仍由事件名保留。
+        if (level == "warn") DiagLog.w("page.diag", DiagLog.gated(detail)) else DiagLog.e("page.diag", DiagLog.gated(detail))
     }
 
     /**
@@ -457,7 +459,7 @@ class WebViewSessionController(private val app: ZcodeRemoteApp) {
                 return@evaluateJavascript
             }
             lastNavState = text
-            DiagLog.i("nav.state", "reason=$reason $text")
+            DiagLog.i("nav.state", "reason=$reason ${DiagLog.gated(text)}")
         }
     }
 
@@ -802,7 +804,7 @@ class WebViewSessionController(private val app: ZcodeRemoteApp) {
             // 直接按未转义的子串匹配会永远匹配不上，这里先真正解码成原始文本。
             val verdict = decodeJsStringResult(raw)
             val dead = verdict.contains("\"dead\":true")
-            DiagLog.i("page.probe", "reason=$reason dead=$dead $verdict")
+            DiagLog.i("page.probe", "reason=$reason dead=$dead ${DiagLog.gated(verdict)}")
             if (!dead) return@evaluateJavascript
             val now = System.currentTimeMillis()
             if (now - lastSelfHealAtMs < SELF_HEAL_MIN_INTERVAL_MS) {

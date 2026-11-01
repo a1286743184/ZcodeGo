@@ -60,6 +60,8 @@ class ZcodeRemoteApp : Application() {
             DiagLog.i("notify.grant", "notif=${nm?.areNotificationsEnabled()} fsi=${fsi ?: "n/a(<14)"}")
         }
         settings = SettingsStore(this)
+        // 隐私模式要在任何内容类日志产生之前生效（进程启动即对齐持久化值）。
+        DiagLog.privacyMode = settings.privacyMode
         links = RemoteLinksStore(this)
         val log = SqliteNotificationLog(this)
         dispatcher = NotificationDispatcher(this, log)

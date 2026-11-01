@@ -2,6 +2,7 @@ package com.zcodeapp.remote.shell
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.zcodeapp.remote.diag.DiagLog
 
 /**
  * 应用设置。
@@ -30,7 +31,20 @@ class SettingsStore(context: Context) {
             sp.edit().putBoolean(KEY_BACKGROUND, l1Available && value).apply()
         }
 
+    /**
+     * 隐私模式：开启后诊断日志不记录页面文本、JS 执行结果等会话内容，
+     * 只保留事件类别与状态计数（门控实现见 DiagLog.gated）。
+     * 默认关闭（排查问题方便）；开源渠道会在设置页提醒开启。
+     */
+    var privacyMode: Boolean
+        get() = sp.getBoolean(KEY_PRIVACY, false)
+        set(value) {
+            sp.edit().putBoolean(KEY_PRIVACY, value).apply()
+            DiagLog.privacyMode = value
+        }
+
     private companion object {
         const val KEY_BACKGROUND = "background_listening"
+        const val KEY_PRIVACY = "privacy_mode"
     }
 }

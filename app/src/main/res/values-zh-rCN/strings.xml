@@ -32,6 +32,11 @@
     <string name="settings_title">设置</string>
     <string name="settings_subtitle">诊断、更新与后台能力</string>
     <string name="settings_section_log">诊断日志</string>
+    <string name="settings_privacy_title">隐私模式</string>
+    <string name="settings_privacy_summary">开启后诊断日志只记事件类别与状态，不记录页面文本与会话内容。</string>
+    <string name="settings_privacy_notice_title">隐私模式未开启</string>
+    <string name="settings_privacy_notice_body">日志可能包含页面文本等会话内容。如需上传或分享日志给他人，建议先开启隐私模式。</string>
+    <string name="settings_privacy_enable">开启</string>
     <string name="settings_section_update">应用更新</string>
     <string name="settings_section_ability">后台能力</string>
     <string name="settings_status_unverified">未验证</string>
