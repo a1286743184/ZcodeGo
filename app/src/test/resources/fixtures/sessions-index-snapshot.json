@@ -1,0 +1,51 @@
+{
+  "_comment": "G2 实测脱敏样本：sessions-index 快照（外层 frame 包装形态，2026-10-25）",
+  "wireVersion": 3,
+  "kind": "complete",
+  "deliveryKind": "initial",
+  "logicalFrameId": "six-sample-lf-1",
+  "logicalFrameOrdinal": 1,
+  "topic": "sessions-index//wsp/sample",
+  "subscriptionId": "six-sample-sub",
+  "frame": {
+    "topic": "sessions-index//wsp/sample",
+    "subscriptionId": "six-sample-sub",
+    "fromSeq": 0,
+    "toSeq": 6839,
+    "sentAt": 1792926172998,
+    "payload": {
+      "kind": "snapshot",
+      "snapshot": {
+        "protocolVersion": 1,
+        "workspaceId": "/wsp/sample",
+        "logEpoch": "sample-epoch",
+        "sessions": [
+          {
+            "sessionId": "session_30000000000000000000000000000003",
+            "workspaceId": "/wsp/sample",
+            "title": "分析样例仓库并选出最优项目",
+            "titleSource": "generated",
+            "phase": "completedSuccess",
+            "lastOutcome": "completed",
+            "sessionEnded": true,
+            "hasBackgroundWork": false,
+            "lastActivityAt": 1792802764621,
+            "createdAt": 1792799446772
+          },
+          {
+            "sessionId": "session_running01",
+            "workspaceId": "/wsp/sample",
+            "title": "正在运行的样例任务",
+            "titleSource": "generated",
+            "phase": "running",
+            "lastOutcome": "none",
+            "sessionEnded": false,
+            "hasBackgroundWork": false,
+            "lastActivityAt": 1792926172998,
+            "createdAt": 1792926000000
+          }
+        ]
+      }
+    }
+  }
+}

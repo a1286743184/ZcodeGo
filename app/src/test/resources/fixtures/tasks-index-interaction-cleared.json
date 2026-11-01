@@ -1,0 +1,46 @@
+{
+  "_comment": "G2 后半实测脱敏样本（2026-10-25 实抓）：同一任务回答后的真实形态。pendingInteraction 消失、liveStatus 从 waiting 回到 running、计数消失。这是判定「交互已处理」的合法依据。",
+  "topic": "controller/tasks-index",
+  "subscriptionId": "68336a32-3834-4285-8597-bf1b44fb9952",
+  "logEpoch": "ab99cc4a-b127-474f-b1c7-9a1ebd0d4b3d",
+  "fromSeq": 54533,
+  "toSeq": 54534,
+  "sentAt": 1792936372716,
+  "payload": {
+    "kind": "deltas",
+    "deltas": [
+      {
+        "op": "task.upserted",
+        "task": {
+          "address": {
+            "workspacePath": "/wsp/sample",
+            "taskId": "session_40000000000000000000000000000004"
+          },
+          "meta": {
+            "taskId": "session_40000000000000000000000000000004",
+            "traceId": "49adefcf-4033-41ee-b229-303e0c5cc93b",
+            "title": "Sample Task With Question",
+            "workspacePath": "/wsp/sample",
+            "createdAt": 1792930814574,
+            "updatedAt": 1792936372500,
+            "mode": "yolo",
+            "provider": "glm",
+            "status": "running"
+          },
+          "membership": {
+            "pinned": false,
+            "archived": false,
+            "active": true
+          },
+          "sourceAvailability": "online",
+          "liveStatus": "running",
+          "activity": {
+            "phase": "running",
+            "lastActivityAt": 1792936372500,
+            "hasBackgroundWork": false
+          }
+        }
+      }
+    ]
+  }
+}

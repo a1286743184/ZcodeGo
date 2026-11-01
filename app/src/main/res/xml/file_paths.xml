@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  更新安装包分享路径。
+
+  只暴露 cache/update/ 一个子目录：下载的 APK 落在这里，通过 content:// 交给
+  系统安装器读取。不给整个 cache 或 files 开洞——那会把诊断日志等私有文件
+  也变成可被外部应用请求的对象。
+-->
+<paths>
+    <cache-path
+        name="update"
+        path="update/" />
+</paths>
