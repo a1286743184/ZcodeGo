@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Zcode 远控</string>
+
+    <!-- 配对入口 -->
+    <string name="launcher_title">Zcode 远控</string>
+    <string name="launcher_description">粘贴 ZCode 远程控制链接、扫描配对二维码，或通过深链打开。</string>
+    <string name="launcher_url_label">远程控制链接</string>
+    <string name="launcher_url_placeholder">https://zcode.z.ai/remote/v4?sid=…</string>
+    <string name="launcher_open">打开</string>
+    <string name="launcher_scan">扫码配对</string>
+    <string name="launcher_recent">最近连接</string>
+    <string name="launcher_recent_clear">清空</string>
+    <string name="launcher_url_invalid">不是有效的 ZCode 远程控制链接</string>
+    <string name="launcher_settings">设置</string>
+
+    <!-- 扫码 -->
+    <string name="scan_title">扫描配对二维码</string>
+    <string name="scan_hint">对准 ZCode 桌面端展示的二维码</string>
+    <string name="scan_invalid">二维码不是 ZCode 远程控制链接</string>
+    <string name="scan_permission_denied">扫码需要相机权限</string>
+    <string name="scan_camera_failed">相机不可用</string>
+    <string name="close">关闭</string>
+
+    <!-- 远控页 -->
+    <string name="remote_load_failed_title">页面加载失败</string>
+    <string name="remote_retry">重试</string>
+    <string name="remote_reloading">正在重连…</string>
+    <string name="route_task_not_found">未找到该任务，可能已归档或尚未同步。</string>
+
+    <!-- 设置 -->
+    <string name="settings_title">设置</string>
+    <string name="settings_subtitle">诊断、更新与后台能力</string>
+    <string name="settings_section_log">诊断日志</string>
+    <string name="settings_section_update">应用更新</string>
+    <string name="settings_section_ability">后台能力</string>
+    <string name="settings_status_unverified">未验证</string>
+    <string name="settings_update_title">版本与更新</string>
+    <string name="settings_update_action">检查并更新</string>
+    <string name="settings_update_busy">正在处理…</string>
+    <string name="settings_log_upload_desc">按小时分块记录。本次将上传最近 2 小时的 %1$s。</string>
+    <string name="log_files_title">日志文件</string>
+    <string name="log_files_summary">共 %1$d 个文件，按小时分块</string>
+    <string name="log_files_selected">已选 %1$d 个</string>
+    <string name="log_files_upload_selected">上传所选</string>
+    <string name="log_files_count">%1$d 个</string>
+    <string name="log_files_select_day">全选</string>
+    <string name="log_files_clear_day">取消</string>
+    <string name="settings_background_title">后台保活</string>
+    <string name="settings_background_summary">息屏、锁屏或切走后仍保持远控连接，任务完成、失败与提问照常提醒。息屏期间会阻止 CPU 休眠，耗电略有增加。</string>
+    <string name="settings_about">ZcodeRemote %1$s — 非官方远程控制客户端，与 Z.ai 无关。</string>
+
+    <!-- 保活前台服务 -->
+    <string name="keep_alive_channel">后台保活</string>
+    <string name="keep_alive_channel_desc">后台保活运行期间显示</string>
+    <string name="keep_alive_title">远控会话保持中</string>
+    <string name="keep_alive_text">息屏也能收到通知 — 已保活 %1$s</string>
+    <string name="keep_alive_stop">停止</string>
+    <string name="keep_alive_duration_min">%1$d 分钟</string>
+    <string name="keep_alive_duration_hour">%1$d 小时 %2$d 分</string>
+
+    <!-- 息屏提醒界面 -->
+    <string name="attention_open">查看</string>
+    <string name="attention_dismiss">知道了</string>
+
+    <!-- 权限状态 -->
+    <string name="settings_perm_notifications">通知权限</string>
+    <string name="settings_perm_battery">电池优化白名单</string>
+    <string name="settings_perm_fullscreen">全屏通知（息屏弹窗）</string>
+    <string name="settings_perm_granted">已授权</string>
+    <string name="settings_perm_open">去开启</string>
+    <string name="settings_perm_allow">去允许</string>
+
+    <!-- 通知 -->
+    <string name="task_channel">任务事件</string>
+    <string name="task_channel_desc">任务完成或失败时通知</string>
+    <string name="attention_channel">Agent 提问</string>
+    <string name="attention_channel_desc">Agent 提问或需要确认时通知</string>
+    <string name="notify_task_completed">任务已完成</string>
+    <string name="notify_task_failed">任务失败</string>
+    <string name="notify_attention">Agent 需要你的输入</string>
+    <string name="notify_attention_summary">还有 %1$d 项待处理</string>
+    <string name="settings_background_unavailable">后台保活当前不可用。当前版本只保证页面可见时的通知。</string>
+    <string name="settings_log_title">诊断日志</string>
+    <string name="settings_log_summary">记录页面加载、连接事件与页面内部报错（不含链接参数与消息正文）。出问题时直接查看或导出这份日志。</string>
+    <string name="settings_log_export">导出</string>
+    <string name="settings_log_clear">清空</string>
+    <string name="settings_log_view">查看</string>
+    <string name="settings_log_upload">上传供分析</string>
+    <string name="settings_log_uploading">正在上传…</string>
+    <string name="settings_log_token_hint">粘贴一次日志仓库的访问令牌，只保存在本机。</string>
+    <string name="settings_log_token_placeholder">Gitee 访问令牌</string>
+    <string name="settings_log_token_save">保存</string>
+    <string name="log_lines">共 %1$d 行，最新在上</string>
+    <string name="log_refresh">刷新</string>
+    <string name="log_empty">暂无日志记录。</string>
+
+    <!-- 壳子面板（会话面板） -->
+    <string name="shell_title">当前会话</string>
+    <string name="shell_reconnect">重新连接</string>
+    <string name="shell_settings">设置</string>
+    <string name="shell_logs">日志文件</string>
+    <string name="shell_disconnect">断开连接</string>
+    <string name="shell_hint">面板后面页面始终是活的，关掉面板即可返回。</string>
+    <string name="shell_status_connected">已连接</string>
+    <string name="shell_status_offline">已断开</string>
+
+    <!-- 交互提示 -->
+    <string name="gesture_refresh_hint">正在刷新</string>
+    <string name="back_again_to_exit">再按一次返回键退出会话</string>
+    <string name="back_page_not_ready">页面还没就绪</string>
+</resources>

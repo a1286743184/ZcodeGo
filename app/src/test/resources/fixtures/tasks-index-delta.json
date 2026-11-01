@@ -1,0 +1,36 @@
+{
+  "_comment": "G2 实测脱敏样本：controller/tasks-index deltas（2026-10-25, app 3.16.3）。字段集合取自 cap-192020.jsonl 真实 task 对象（address/meta/membership/sourceAvailability/liveStatus/activity 六段齐全），meta 含 traceId——runId 身份就取它。",
+  "topic": "controller/tasks-index",
+  "subscriptionId": "e7128f4a-c68d-4836-9e70-bc2814eb5406",
+  "logEpoch": "ab99cc4a-b127-474f-b1c7-9a1ebd0d4b3d",
+  "fromSeq": 32380,
+  "toSeq": 32381,
+  "sentAt": 1792926174033,
+  "payload": {
+    "kind": "deltas",
+    "deltas": [
+      {
+        "op": "task.upserted",
+        "task": {
+          "address": { "workspacePath": "/wsp/sample", "taskId": "session_10000000000000000000000000000001" },
+          "meta": {
+            "taskId": "session_10000000000000000000000000000001",
+            "traceId": "00000000-0000-4000-8000-00000000007d",
+            "title": "Sample Task",
+            "workspacePath": "/wsp/sample",
+            "createdAt": 1792925327687,
+            "updatedAt": 1792926173878,
+            "mode": "default",
+            "provider": "glm",
+            "titleOverridden": false,
+            "status": "running"
+          },
+          "membership": { "pinned": false, "archived": false, "active": true },
+          "sourceAvailability": "online",
+          "liveStatus": "running",
+          "activity": { "phase": "running", "lastActivityAt": 1792926173878, "hasBackgroundWork": false }
+        }
+      }
+    ]
+  }
+}

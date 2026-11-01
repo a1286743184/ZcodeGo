@@ -1,0 +1,17 @@
+{
+  "_comment": "G2 实测脱敏样本：zcode-task/getTaskMeta 201 回执（2026-10-25）",
+  "taskId": "sess_a1b2c3d4-0000-4000-8000-0000000000e1",
+  "traceId": "00000000-0000-4000-8000-000000000050",
+  "title": "Sample Fork Task",
+  "titleOverridden": true,
+  "workspacePath": "/wsp/sample",
+  "createdAt": 1792921044831,
+  "updatedAt": 1792923061261,
+  "mode": "build",
+  "model": "sample-model",
+  "thoughtLevel": "high",
+  "provider": "glm",
+  "forkedFromTaskId": "session_20000000000000000000000000000002",
+  "status": "completed",
+  "target": null
+}

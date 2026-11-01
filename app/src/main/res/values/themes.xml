@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Zcodemobile" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <!-- 息屏提醒界面：深色、无标题栏、透明系统栏。
+         固定深色是因为它在暗环境下弹出，浅色底会刺眼。 -->
+    <style name="Theme.Zcodemobile.Attention" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">#161616</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowShowWallpaper">false</item>
+    </style>
+</resources>

@@ -1,0 +1,29 @@
+{
+  "_comment": "上游锁定（v2 D1）：复制来源、精确提交与同步流程。每次同步前跑配对/导航/FGS 回归。",
+  "upstream": {
+    "repo": "https://github.com/zai-org/ZCode",
+    "commit": "3c5b227649371507ddc4eb46ac5133afe6db1cab",
+    "commit_date": "2026-10-20",
+    "license": "Apache-2.0",
+    "source_path": "packages/android",
+    "local_path": "仓库根（仅 copied_and_modified 所列文件与目录源自上游，其余为本项目原创）",
+    "sync_trigger": "适配新桌面版本或每月例行；同步 = 重新对照该目录 diff 并人工评审合并"
+  },
+  "copied_and_modified": [
+    "settings.gradle.kts（改 rootProject.name）",
+    "build.gradle.kts（根，未实质修改）",
+    "gradle.properties（重写）",
+    "gradle/libs.versions.toml（+androidx-webkit）",
+    "gradle/wrapper/*（原样）",
+    "app/build.gradle.kts（包名/minSdk 26/依赖调整）",
+    "app/src/main/AndroidManifest.xml（allowBackup=false、RouteActivity、包名）",
+    "app/src/main/java/**/ui/theme/*（包名替换，逻辑未改）",
+    "app/src/main/res/mipmap*|drawable/ic_stat_remote_control.xml|themes|colors（原样）",
+    "strings.xml（重写文案）",
+    "扫码相机实现思路参考 packages/android 官方代码重写为 shell/ScanScreen.kt"
+  ],
+  "not_copied": [
+    "官方 MainActivity/RemoteControlApp/RemoteControlKeepAliveService/RemoteControlRecentLinksStore/RemoteControlUrlPolicy（由本项目模块替代）",
+    "官方 backup_rules/data_extraction_rules（allowBackup=false 后不需要）"
+  ]
+}

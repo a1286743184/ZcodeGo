@@ -1,0 +1,44 @@
+.gradle/
+build/
+local.properties
+.idea/
+*.iml
+.DS_Store
+captures/
+raw/
+__pycache__/
+.gradle-home/
+.smoke/
+watch.log
+watch.out
+watch.pid
+watch.state.json
+login.snapshot.json
+
+# release keystore（含私钥，禁止入库）
+keystore/
+*.jks
+*.keystore
+
+# 从手机拉下来的设备日志（含设备标识与现场数据，不入库）
+device_logs/
+
+# Kotlin 增量编译会话目录
+.kotlin/
+
+# 绑定维护者个人环境的工具（本地保留可用，不入库）
+tools/m3/
+tools/capture/cap.py
+tools/capture/watch.py
+tools/capture/inject_login.py
+tools/publish.py
+tools/fetch_logs.py
+
+# 构建与分析产物，防止误提交
+*.apk
+*.aab
+*.hprof
+*.pyc
+.venv/
+venv/
+marks.jsonl

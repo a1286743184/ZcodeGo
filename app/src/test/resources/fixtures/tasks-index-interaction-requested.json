@@ -1,0 +1,45 @@
+{
+  "_comment": "G2 后半实测脱敏样本（2026-10-25 21:48 实抓，app 3.16.3）：Agent 提问出现时的真实形态。交互身份在 meta.pendingInteraction（单对象），liveStatus 同时变 waiting；计数在 activity.pendingInteractions。interactionId 前缀是 perm_ 但 kind 是 userInput——不要按前缀推断类型。",
+  "topic": "controller/tasks-index",
+  "subscriptionId": "68336a32-3834-4285-8597-bf1b44fb9952",
+  "logEpoch": "ab99cc4a-b127-474f-b1c7-9a1ebd0d4b3d",
+  "fromSeq": 54247,
+  "toSeq": 54248,
+  "sentAt": 1792936112734,
+  "payload": {
+    "kind": "deltas",
+    "deltas": [
+      {
+        "op": "task.upserted",
+        "task": {
+          "address": { "workspacePath": "/wsp/sample", "taskId": "session_40000000000000000000000000000004" },
+          "meta": {
+            "taskId": "session_40000000000000000000000000000004",
+            "traceId": "49adefcf-4033-41ee-b229-303e0c5cc93b",
+            "title": "Sample Task With Question",
+            "workspacePath": "/wsp/sample",
+            "createdAt": 1792930814574,
+            "updatedAt": 1792936112727,
+            "mode": "yolo",
+            "provider": "glm",
+            "status": "running",
+            "pendingInteraction": {
+              "interactionId": "perm_3572b093-2ff7-45ce-9054-79c733a5a23d",
+              "kind": "userInput",
+              "toolName": "AskUserQuestion"
+            }
+          },
+          "membership": { "pinned": false, "archived": false, "active": true },
+          "sourceAvailability": "online",
+          "liveStatus": "waiting",
+          "activity": {
+            "phase": "running",
+            "lastActivityAt": 1792936112727,
+            "hasBackgroundWork": false,
+            "pendingInteractions": { "permissionCount": 0, "userInputCount": 1 }
+          }
+        }
+      }
+    ]
+  }
+}
